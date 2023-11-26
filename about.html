@@ -8,6 +8,17 @@
   <body>
     <div class="container">
     <h1>About Me</h1>
+    <p id="demo"></p>
+
+<script>
+let text = "Fun fact, in the movie Intersteller, the black hole they travel through would be around " + toCelsius(-459.67) + " degrees Celsius.";
+document.getElementById("demo").innerHTML = text;
+
+function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+} 
+</script>
+      
   <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header">
