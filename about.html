@@ -169,4 +169,19 @@
             const confetti = document.createElement('div');
             confetti.className = 'confetti';
             confetti.style.left = Math.random() * window.innerWidth + 'px';
-            confetti.style.animation
+            confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+
+        // Button click event
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            createConfetti();
+        });
+    </script>
+</body>
+
+</html>
