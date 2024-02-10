@@ -171,10 +171,10 @@
         function createFirework() {
             const firework = document.createElement('div');
             firework.className = 'firework';
+             firework.src = 'https://gifsec.com/wp-content/uploads/2022/09/heart-gif-5.gif'; // Replace with the actual path to your image
             firework.style.left = Math.random() * window.innerWidth + 'px';
             firework.style.top = Math.random() * window.innerHeight + 'px';
             document.body.appendChild(firework);
-
             setTimeout(() => {
                 firework.remove();
             }, 1000);
