@@ -98,12 +98,14 @@
             animation: fireworkAnimation 1s linear;
         }
 
-        @keyframes confettiAnimation {
+        @keyframes fireworkAnimation {
             0% {
-                transform: translate(0, 0) rotate(45deg);
+                transform: scale(1);
+                opacity: 1;
             }
             100% {
-                transform: translate(100vw, 100vh) rotate(45deg);
+                transform: scale(5);
+                opacity: 0;
             }
         }
     </style>
@@ -165,8 +167,8 @@
             }, 5000);
         }
 
-        // Confetti animation function
-      function createFirework() {
+        // Firework animation function
+        function createFirework() {
             const firework = document.createElement('div');
             firework.className = 'firework';
             firework.style.left = Math.random() * window.innerWidth + 'px';
