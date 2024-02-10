@@ -89,7 +89,7 @@
             margin-top: 30px;
         }
 
-       .firework {
+        .firework {
             width: 20px;
             height: 20px;
             background-color: #ff9900; /* Firework color */
@@ -107,6 +107,58 @@
                 transform: scale(5);
                 opacity: 0;
             }
+        }
+
+        /* Style for custom checkboxes */
+        .custom-checkbox {
+            display: inline-block;
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+        }
+
+        .custom-checkbox input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 25px;
+            width: 25px;
+            background-color: #eee;
+            border-radius: 5px;
+        }
+
+        .custom-checkbox:hover input~.checkmark {
+            background-color: #ccc;
+        }
+
+        .custom-checkbox input:checked~.checkmark {
+            background-color: #007bff;
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .custom-checkbox input:checked~.checkmark:after {
+            display: block;
+        }
+
+        .custom-checkbox .checkmark:after {
+            left: 9px;
+            top: 5px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
         }
     </style>
 </head>
@@ -134,8 +186,14 @@
 
     <div class="valentine-container">
         <h2>Will you be my Valentine?</h2>
-        <button class="btn btn-success" id="yesBtn">Yes</button>
-        <button class="btn btn-danger" id="noBtn">No</button>
+        <label class="custom-checkbox">
+            <input type="checkbox" id="yesCheckbox">
+            <span class="checkmark"></span> Yes
+        </label>
+        <label class="custom-checkbox">
+            <input type="checkbox" id="noCheckbox">
+            <span class="checkmark"></span> No
+        </label>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -171,7 +229,6 @@
         function createFirework() {
             const firework = document.createElement('div');
             firework.className = 'firework';
-            firework.src = 'https://gifsec.com/wp-content/uploads/2022/09/heart-gif-5.gif'; // Replace with the actual path to your image
             firework.style.width = '50px'; // Set the width of the image
             firework.style.height = '50px';
             firework.style.left = Math.random() * window.innerWidth + 'px';
@@ -182,9 +239,15 @@
             }, 1000);
         }
 
-        // Button click event
-        document.getElementById('yesBtn').addEventListener('click', function() {
-            createFirework();
+        // Checkbox change event
+        document.getElementById('yesCheckbox').addEventListener('change', function () {
+            if (this.checked) {
+                createFirework();
+            }
+        });
+
+        document.getElementById('noCheckbox').addEventListener('change', function () {
+            // Handle 'No' checkbox change if needed
         });
     </script>
 </body>
