@@ -146,7 +146,7 @@
         crossorigin="anonymous"></script>
 
     <script>
-        let text = "It's crazy to think that this relationship started with a Snapchat message. I'm so glad that you decided to check up on me that one day because it turned into something that I would have never thought of. Thank you for always being there for me, and I look forward to making so many memories with you through the years.";
+        let text = "It's crazy to think that this relationship started with a Snapchat message. I'm so glad that you decided to check up on me that one day because it turned into something that I would have never thought of. Thank you for always being there for me, and I look forward to making so many memories with you through the years. Will you be my Velentine?";
         document.getElementById("demo").innerHTML = text;
 
         // Generate random hearts
@@ -171,7 +171,9 @@
         function createFirework() {
             const firework = document.createElement('div');
             firework.className = 'firework';
-             firework.src = 'https://gifsec.com/wp-content/uploads/2022/09/heart-gif-5.gif'; // Replace with the actual path to your image
+            firework.src = 'https://gifsec.com/wp-content/uploads/2022/09/heart-gif-5.gif'; // Replace with the actual path to your image
+            firework.style.width = '50px'; // Set the width of the image
+            firework.style.height = '50px';
             firework.style.left = Math.random() * window.innerWidth + 'px';
             firework.style.top = Math.random() * window.innerHeight + 'px';
             document.body.appendChild(firework);
