@@ -240,12 +240,14 @@
         }
 
         // Checkbox change event
-        document.getElementById('yesCheckbox').addEventListener('change', function () {
+      document.getElementById('yesCheckbox').addEventListener('change', function () {
             if (this.checked) {
                 createFirework();
+                // Redirect to projects.html
+                window.location.href = 'projects.html';
             }
         });
-
+        
         document.getElementById('noCheckbox').addEventListener('change', function () {
             // Handle 'No' checkbox change if needed
         });
