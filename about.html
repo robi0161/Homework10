@@ -8,178 +8,52 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #ffcccc; /* Solid color related to Valentine's Day */
-            color: #333;
-        }
+        /* Your existing styles */
 
-        #hearts-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        @keyframes heartsAnimation {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .heart {
-            position: absolute;
+        .firework {
             width: 20px;
             height: 20px;
-            background-color: red;
-            transform: rotate(-45deg);
-            transform-origin: 50% 50%;
-            animation: heartsAnimation 5s infinite;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: #007bff;
-        }
-
-        p {
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-
-        .accordion-item {
-            margin-bottom: 20px;
-        }
-
-        .card {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-link {
-            color: #007bff;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .card-link:hover {
-            text-decoration: underline;
-        }
-
-        .valentine-container {
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .confetti {
-            width: 10px;
-            height: 10px;
-            background-color: #f0f;
+            background-color: #ff9900; /* Firework color */
             position: fixed;
-            animation: confettiAnimation 1s infinite;
+            border-radius: 50%;
+            animation: fireworkAnimation 1s linear;
         }
 
-        @keyframes confettiAnimation {
+        @keyframes fireworkAnimation {
             0% {
-                transform: translate(0, 0) rotate(45deg);
+                transform: scale(1);
             }
             100% {
-                transform: translate(100vw, 100vh) rotate(45deg);
+                transform: scale(5);
+                opacity: 0;
             }
         }
     </style>
 </head>
 
 <body>
-    <div id="hearts-container"></div>
-    <div class="container">
-        <h1>About Us</h1>
-        <p id="demo"></p>
-
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        <div class="card" style="width: 18rem;">
-                            <!-- Add content for the card here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="valentine-container">
-        <h2>Will you be my Valentine?</h2>
-        <button class="btn btn-success" id="yesBtn">Yes</button>
-        <button class="btn btn-danger" id="noBtn">No</button>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6nxl2A8tIpe8yIuQC3BZ4wnKcDAa8e0"
-        crossorigin="anonymous"></script>
+    <!-- Your existing HTML -->
 
     <script>
-        let text = "It's crazy to think that this relationship started with a Snapchat message. I'm so glad that you decided to check up on me that one day because it turned into something that I would have never thought of. Thank you for always being there for me, and I look forward to making so many memories with you through the years.";
-        document.getElementById("demo").innerHTML = text;
+        // Your existing script
 
-        // Generate random hearts
-        const heartsContainer = document.getElementById('hearts-container');
-        for (let i = 0; i < 10; i++) {
-            createHeart();
-        }
-
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-            heartsContainer.appendChild(heart);
+        // Firework animation function
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.className = 'firework';
+            firework.style.left = Math.random() * window.innerWidth + 'px';
+            firework.style.top = Math.random() * window.innerHeight + 'px';
+            document.body.appendChild(firework);
 
             setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }
-
-        // Confetti animation function
-        function createConfetti() {
-            const confetti = document.createElement('div');
-            confetti.className = 'confetti';
-            confetti.style.left = Math.random() * window.innerWidth + 'px';
-            confetti.style.animationDuration = Math.random() * 2 + 3 + 's';
-            document.body.appendChild(confetti);
-
-            setTimeout(() => {
-                confetti.remove();
-            }, 5000);
+                firework.remove();
+            }, 1000);
         }
 
         // Button click event
         document.getElementById('yesBtn').addEventListener('click', function() {
             createConfetti();
+            createFirework();
         });
     </script>
 </body>
